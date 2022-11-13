@@ -1,0 +1,74 @@
+﻿<Window x:Class="Olympic.OlympicView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Olympic" xmlns:modelview="clr-namespace:Olympic.ModelView" d:DataContext="{d:DesignInstance Type=modelview:OlympicsModelView}"
+        mc:Ignorable="d"
+        Title="OlympicView" Height="600" Width="1000" MinHeight="600" MinWidth="1000" Icon="C:\Users\CorsoE80\Downloads\Logo.jpg">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\CorsoE80\Downloads\SfondoPerOlympics.jpg"></ImageBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="12*"/>
+            <ColumnDefinition Width="97.4*"/>
+            <ColumnDefinition Width="97.4*"/>
+            <ColumnDefinition Width="97.4*"/>
+            <ColumnDefinition Width="97.4*"/>
+            <ColumnDefinition Width="97.4*"/>
+            <ColumnDefinition Width="97.4*"/>
+            <ColumnDefinition Width="97.4*"/>
+            <ColumnDefinition Width="97.4*"/>
+            <ColumnDefinition Width="97.4*"/>
+            <ColumnDefinition Width="97.4*"/>
+            <ColumnDefinition Width="12*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="18*"/>
+            <RowDefinition Height="58*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="43*"/>
+            <RowDefinition Height="296*"/>
+            <RowDefinition Height="13*"/>
+            <RowDefinition Height="36*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="28*"/>
+        </Grid.RowDefinitions>
+        <Label Name="Titolo" Content="Athletes of the Olympic Games" Grid.Row="1" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" FontSize="28" FontWeight="Bold" Grid.ColumnSpan="5" Height="48" Width="416"/>
+        <Label Name="Label_Nome" Content="Nome" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" FontFamily="18" FontWeight="DemiBold" VerticalAlignment="Bottom" Height="24" Width="43"/>
+        <Label Name="Label_Sex" Content="Sex" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" FontFamily="18" FontWeight="DemiBold" VerticalAlignment="Bottom" Height="24" Width="30"/>
+        <Label Name="Label_Games" Content="Games" Grid.Row="2" Grid.Column="4" HorizontalAlignment="Left" FontFamily="18" FontWeight="DemiBold" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Height="24" Width="47"/>
+        <Label Name="Label_Sport" Content="Sport" Grid.Row="2" Grid.Column="5" HorizontalAlignment="Left" FontFamily="18" FontWeight="DemiBold" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Height="24" Width="40"/>
+        <Label Name="Label_Event" Content="Event" Grid.Row="2" Grid.Column="6" HorizontalAlignment="Left" FontFamily="18" FontWeight="DemiBold" VerticalAlignment="Bottom" Height="24" Width="40"/>
+        <Label Name="Label_Medal" Content="Medal" Grid.Row="2" Grid.Column="8" HorizontalAlignment="Left" FontFamily="18" FontWeight="DemiBold" VerticalAlignment="Bottom" Grid.ColumnSpan="2" Height="24"  Width="45"/>
+        <Image Source="C:\Users\CorsoE80\Downloads\Logo.jpg" Margin="5,4.6,4.6,5" Grid.Column="10" Grid.Row="1"></Image>
+        <TextBox Name="TextBox_Nome" Text="{Binding Scelta_Name}" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Background="Beige" Margin="5,4.8,4.6,5.4"/>
+        <ComboBox Name="CBox_Sex"  ItemsSource="{Binding Lista_Sessi}" SelectedItem="{Binding Scelta_Sex}" Grid.Row="3" Grid.Column="3" Margin="5.4,4.8,5.4,5.4"></ComboBox>
+        <ComboBox Name="CBox_Games" ItemsSource="{Binding Lista_Giochi}" SelectedItem="{Binding Scelta_Games}" Grid.Row="3" Grid.Column="4" Margin="4.6,4.8,5.2,5.4"></ComboBox>
+        <ComboBox Name="CBox_Sport" ItemsSource="{Binding Lista_Sport}" SelectedItem="{Binding Scelta_Sport}" Grid.Row="3" Grid.Column="5" Margin="4.8,4.8,5,5.4"></ComboBox>
+        <ComboBox Name="CBox_Event" ItemsSource="{Binding Lista_Event}" SelectedItem ="{Binding Scelta_Event}" Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2" Margin="5,4.8,5.4,5.4"></ComboBox>
+        <ComboBox Name="CBox_Medal" ItemsSource="{Binding Lista_Medal}" SelectedItem="{Binding Scelta_Medal}" Grid.Row="3" Grid.Column="8" Margin="4.6,4.8,5.2,5.4"></ComboBox>
+        <Button Name="AzzeraFiltri" Content="Azzera Filtri" Click="AzzeraFiltri_Click" VerticalContentAlignment="Center" Margin="4.8,4.8,4.6,5.4" FontSize="18" Grid.Column="9" Grid.Row="3" Grid.ColumnSpan="2"></Button>
+        <DataGrid ItemsSource="{Binding Lista_Atleti}" Name="TabellaOlympics" AutoGenerateColumns="True" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="11" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" Margin="0,42.6,11.6,12.4" Grid.RowSpan="3">
+
+        </DataGrid>
+        <Button Name="Torna_PagIniziale" Content="←←" IsEnabled="{Binding Indietro}" Click="VaiPagIniziale_Click" Margin="4.6,5.6,5.2,4.4" Grid.Row="7" Grid.Column="4" FontSize="16" FontWeight="DemiBold" ></Button>
+        <Button Name="Torna_Indietro" Content="←" IsEnabled="{Binding Indietro}" Click="VaiIndietro_Click" Margin="4.8,5.6,5,4.4" Grid.Row="7" Grid.Column="5" FontSize="16" FontWeight="DemiBold" ></Button>
+        <Button Name="Vai_Avanti_" Content="→" IsEnabled="{Binding Avanti}" Click="VaiAvanti_Click" Margin="5,5.6,4.8,4.4" Grid.Row="7" Grid.Column="6" FontSize="16" FontWeight="DemiBold" ></Button>
+        <Button Name="Vai_UltimaPag" Content="→→" IsEnabled="{Binding Avanti}" Click="VaiUltimaPag_Click" Margin="5.2,5.6,5.4,4.4" Grid.Row="7" Grid.Column="7" FontSize="16" FontWeight="DemiBold" ></Button>
+        <ComboBox Name="Righe_PerPag" ItemsSource="{Binding Righe_PerPag}" SelectedItem="{Binding Scelta_Righe}" Margin="5,10.6,4.6,5.4" Grid.Column="10" Grid.Row="7"/>
+        <Label Name="Label_RighexPag" Content="Righe Per Pag" Grid.Column="9" Grid.Row="7" VerticalAlignment="Center" HorizontalAlignment="Right" Height="25" Margin="0,5.6,0,5.4" Width="83"></Label>
+        <Label Name="Impaginazione" Content="{Binding Impaginazione}" Margin="5" HorizontalContentAlignment="Center" Grid.Row="8" Grid.Column="4" Grid.ColumnSpan="4" FontWeight="DemiBold" Grid.RowSpan="2"/>
+        <Menu Grid.Row="0" Grid.Column="0" Background="Black" Grid.ColumnSpan="12" Margin="0,0,-0.4,0.4">
+            <MenuItem Header="_File" Grid.Column="1" Grid.Row="0" TextBlock.Foreground="White">
+                <MenuItem Header="Esci" Grid.Column="1" Grid.Row="0" Background="Black" BorderBrush="Black" Click="MenuEsci_Click" TextBlock.Foreground="White"/>
+            </MenuItem>
+            <MenuItem Header="?" Grid.Column="1" Grid.Row="0" TextBlock.Foreground="White">
+                <MenuItem Header="About" Grid.Column="1" Grid.Row="0" Background="Black" BorderBrush="Black" Click="MenuAbout_Click" TextBlock.Foreground="White"/>
+            </MenuItem>
+        </Menu>
+    </Grid>
+
+</Window>
