@@ -100,5 +100,11 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Foto\SfondoPerOlympics.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Foto\Logo.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

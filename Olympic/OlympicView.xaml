@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Olympic" xmlns:modelview="clr-namespace:Olympic.ModelView" d:DataContext="{d:DesignInstance Type=modelview:OlympicsModelView}"
         mc:Ignorable="d"
-        Title="OlympicView" Height="600" Width="1000" MinHeight="600" MinWidth="1000" Icon="C:\Users\CorsoE80\Downloads\Logo.jpg">
+        Title="OlympicView" Height="600" Width="1000" MinHeight="600" MinWidth="1000" Icon="Foto\Logo.jpg">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\CorsoE80\Downloads\SfondoPerOlympics.jpg"></ImageBrush>
+            <ImageBrush ImageSource="Foto\SfondoPerOlympics.jpg"></ImageBrush>
         </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="12*"/>
